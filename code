@@ -1,0 +1,33 @@
+import copy
+import random
+# Consider using the modules imported above.
+class Hat:
+    def __init__(self,**kwargs):
+        self.content = list()
+        for key in kwargs:
+            for i in range(int(kwargs[key])):
+                self.content.append(str(key))
+
+    def draw(self,num):
+        if num > len(self.content):
+            num = len(self.content)
+        lst = random.sample(self.content, num)
+        return lst
+
+def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
+    prob = 0
+    for i in range(num_experiments):
+        draw = hat.draw(num_balls_drawn)
+        ok = False
+        for ball in expected_balls:
+            cont_ball = 0
+            for color in draw:
+                if ball == color:
+                    cont_ball += 1
+            if cont_ball >= expected_balls[ball]:
+                ok = True
+            else:
+                ok = False
+        if ok is True:
+            prob += 1
+    return prob/num_experiments
