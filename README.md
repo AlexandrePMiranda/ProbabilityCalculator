@@ -32,3 +32,5 @@ probability = experiment(hat=hat,
                   num_experiments=2000)
                   
 Como isto é baseado em sorteios aleatórios, a probabilidade será ligeiramente diferente cada vez que o código for executado.
+
+Para utilizar Probability Calculator, é só copiar o código em um compilador python, e fazer um código de utilização do app de acordo com as instruções acima.
